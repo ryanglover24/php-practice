@@ -10,8 +10,8 @@
         //unset all variables
         session_unset();
     }
-
-    $name = $_SESSION['name'];
+//null coalese Gets rid of error message at top when unset above and sets a 'backup value'
+    $name = $_SESSION['name'] ?? 'Guest';
 ?>
 
 
