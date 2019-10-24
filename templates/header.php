@@ -1,3 +1,22 @@
+<?php
+
+    session_start();
+
+    // Override session name $_SESSION['name'] = 'Yoshi';
+//query string is eg: http://localhost/tuts/index.php?noname 
+    if ($_SERVER['QUERY_STRING'] == 'noname') {
+       //unset single variable
+        // unset($_SESSION['name']);
+        //unset all variables
+        session_unset();
+    }
+
+    $name = $_SESSION['name'];
+?>
+
+
+
+
 <head>
     <title>
         Ninja Pizza
@@ -31,6 +50,7 @@
         <div class="container">
             <a href="index.php" class="brand-logo brand-text">Ninja Pizza</a>
             <ul id="nav-mobile" class="right hide-on-small-and-down">
+                <li class="red-text">Hello <?php echo htmlspecialchars($name); ?></li>
                 <li><a href="add.php" class="btn brand z-depth-0">Add a Pizza</a>
         </div>
     

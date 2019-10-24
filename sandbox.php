@@ -1,14 +1,14 @@
 <?php 
 
-// superglobals
+//sessions
+    if(isset($_POST['submit'])) {
 
-// eg of superglobals $_GET['name'], or $_POST['name']
-//new superglobal giving info on server
+        session_start();
 
- echo $_SERVER['SERVER_NAME'] . '<br />'; 
- echo $_SERVER['REQUEST_METHOD'] . '<br />';
- echo $_SERVER['SCRIPT_FILENAME'] . '<br />'; 
- echo $_SERVER['PHP_SELF'] . '<br />';  
+        $_SESSION['name'] = $_POST['name'];
+
+        header('Location: index.php');
+    }
 
 
 ?>
@@ -22,7 +22,10 @@
     </head>
     <body>
         
-        
+       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <input type="text" name="name">
+        <input type="submit" name="submit" value="submit">
+       </form> 
       
 
 
