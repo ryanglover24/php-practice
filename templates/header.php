@@ -15,6 +15,13 @@
         max-width: 820px;
         margin: 20px auto;
     }
+    .pizza {
+        width: 150px;
+        margin: 40px auto -30px;
+        display: block;
+        position: relative;
+        top: -50px;
+    }
     </style>
 </head>
 
