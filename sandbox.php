@@ -1,13 +1,14 @@
 <?php 
-//ternary operators
 
-$score = 50;
+// superglobals
 
-// $val = $score > 40 ? 'high score!' : 'low score :(';
-// echo $val;
+// eg of superglobals $_GET['name'], or $_POST['name']
+//new superglobal giving info on server
 
-// echo $score > 40 ? 'high score!' : 'low score :(';
-
+ echo $_SERVER['SERVER_NAME'] . '<br />'; 
+ echo $_SERVER['REQUEST_METHOD'] . '<br />';
+ echo $_SERVER['SCRIPT_FILENAME'] . '<br />'; 
+ echo $_SERVER['PHP_SELF'] . '<br />';  
 
 
 ?>
@@ -22,7 +23,7 @@ $score = 50;
     <body>
         
         
-        <p><?php echo $score > 40 ? 'high score!' : 'low score :('; ?></p>
+      
 
 
     </body>
