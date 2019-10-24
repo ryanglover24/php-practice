@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
 
     mysqli_free_result($result);
     mysqli_close($conn);
-    print_r($pizza);
+
 }
 
 if(isset($_POST['delete'])) {
@@ -45,7 +45,7 @@ if(isset($_POST['delete'])) {
 
     <?php include('templates/header.php'); ?>
 
-        <div class="container center">
+        <div class="container center grey-text">
             <?php if($pizza): ?>
 
                 <h4><?php echo htmlspecialchars($pizza['title']); ?></h4>
