@@ -1,41 +1,35 @@
 <?php 
 
-//sessions
-    if(isset($_POST['submit'])) {
+ //file system - part 1
+//reading a txt file (number at end of content is number of bytes in the file)
+//  $quotes = readfile('readme.txt');
+//  echo $quotes;
 
-        //adding cookie for gender using setcookie method with the name of the cookie The value and time it exists on users PC so here current time plus seconds in day
-        setcookie('gender', $_POST['gender'], time() + 86400);
+//checking file exists
+    $file = 'readme.txt';
 
+    if(file_exists($file)) {
+        //readfile
+        echo readfile($file) . '<br />';
 
-        session_start();
+        //copyfile doesnt matter doesnt exist will make for us
+        copy($file, 'quotes.txt');
 
-        $_SESSION['name'] = $_POST['name'];
+        //absolute path
+        echo realpath($file) . '<br />';
 
-        header('Location: index.php');
+        //file size
+        echo filesize($file) . '<br />';
+
+        // rename file
+        rename($file, 'test.txt');
+
+    } else {
+        echo 'file does not exist';
     }
 
+    //make directory
+    mkdir('quotes');
 
 ?>
 
-<!DOCTYPE html>
-
-<html>
-
-    <head>
-        <title>php tuts</title>
-    </head>
-    <body>
-        
-       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        <input type="text" name="name">
-        <select name="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        <input type="submit" name="submit" value="submit">
-       </form> 
-      
-
-
-    </body>
-</html>
