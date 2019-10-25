@@ -3,8 +3,8 @@
 
 class User {
 
-    public $email;
-    public $name;
+    private $email;
+    private $name;
 
     public function __construct($name, $email) {
         // $this->email = 'mario@gmail.com';
@@ -17,7 +17,21 @@ class User {
     public function login() {
         echo $this->name . ' logged in';
     }
+    //getter to access name outside function
+    public function getName() {
+        return $this->name;
+    }
 
+    //setter for name
+    public function setName($name) {
+        //check argument is a string and is greater than 1 char long
+        if (is_string($name) && strlen($name) > 1) {
+            $this->name = $name;
+            return "name has been updated to $name";
+        } else {
+            return 'not a valid name';
+        }
+    }
 
 }
 
@@ -27,9 +41,12 @@ class User {
     // echo $userOne->email;
 
     $userTwo = new User('yoshi', 'yoshi@gmail.com');
-    echo $userTwo->name;
-    echo $userTwo->email;
-    $userTwo->login();
+    //can overide name anywhere if its public eg:
+    // $userTwo->name = 'mario';
+    // echo $userTwo->name;
 
+    // echo $userTwo->getName();
+    echo $userTwo->setName('Ryan');
+    echo $userTwo->getName();
 ?>
 
