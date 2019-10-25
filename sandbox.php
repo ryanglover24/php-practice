@@ -1,31 +1,35 @@
 <?php 
+//classes
 
- //file system - part 2
+class User {
 
-    $file = 'quotes.txt';
+    public $email;
+    public $name;
 
-    // opening a file for reading second param is code in this case r for read only
-    $handle = fopen($file, 'a+');
+    public function __construct($name, $email) {
+        // $this->email = 'mario@gmail.com';
+        // $this->name = 'mario';
+        $this->email = $email;
+        $this->name = $name;
+    }
 
-    //read the file second param is how many bytes want to read
-    // echo fread($handle, filesize($file)) . '<br />';
 
-    //read a single line second instance reads second line 'pointer' follows on next example would also follow and not go to the start
-    // echo fgets($handle) . '<br />';
-    // echo fgets($handle) . '<br />';
+    public function login() {
+        echo $this->name . ' logged in';
+    }
 
-    //read a single character
-    // echo fgetc($handle);
-    // echo fgetc($handle);
 
-    //writing to the file code becomes r+ read and write. Writes at start and writes over text a+ puts pointer at end and writes to end
-    fwrite($handle, "\nEverything Popular is wrong");
+}
 
-    //close the file when finised
-    fclose($handle);
+    // $userOne = new User();
 
-    //delete a file 
-    unlink($file);
+    // $userOne->login();
+    // echo $userOne->email;
+
+    $userTwo = new User('yoshi', 'yoshi@gmail.com');
+    echo $userTwo->name;
+    echo $userTwo->email;
+    $userTwo->login();
 
 ?>
 
